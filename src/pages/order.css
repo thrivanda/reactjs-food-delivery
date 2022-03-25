@@ -1,0 +1,33 @@
+.Order{
+    margin-top: 100px;
+    /* text-align: center!important; */
+    width: 70%;
+    display: block!important;
+}
+.background {
+    background-color: purple!important;
+    display: block!important;
+    width: 1500px;
+}
+.success {
+    width: 100px;
+    height: 30px;
+    background-color:aqua;
+
+}
+.cardfood {
+    display: inline-flex;
+    width: auto;
+    margin-left: 55px;
+}
+.cardfood h1 {
+    text-align: center;
+    /* margin-left: 55px; */
+}
+.square {
+    width: 260px;
+}
+.cart-item {
+    background: lightblue;
+    text-align: center;
+}
