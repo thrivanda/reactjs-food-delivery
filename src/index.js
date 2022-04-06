@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 // import './component/medalUser';
 import './index.css';
 import Order from './pages/order'
+import Login from './pages/login'
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Menu from './pages/menu'
 // import App from './App';
 
@@ -48,20 +50,6 @@ function Dashboard() {
 }
 
 
-
-function Login() {
-  return (
-    <div className="Login">
-      
-      <button >Login as a User</button>
-      {/* < MedalUser/> */}
-      <button >Login as a Driver</button>
-      <button >Login as a Seller</button>
-     
-     
-    </div>
-  );
-}
 
 
 // If you want to start measuring performance in your app, pass a function
