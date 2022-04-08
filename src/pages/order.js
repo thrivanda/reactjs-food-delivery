@@ -5,6 +5,7 @@ import OrderHeader from '../Component/OrderHeader'
 
 
 function Order() {
+ 
   return (
     <div className="Order">
      <OrderHeader/> 
@@ -17,7 +18,7 @@ function Order() {
                 <p>{orderDetail.ingredient}</p>
                 <p>{orderDetail.price}</p>
                 <button class="success"> Add to Cart</button>
-                {/* <button class="success" onClick={}=>add.item(orderDetail.item) > Add to Cart</button> */}
+                
             </div>
         })}
         </div>

@@ -1,29 +1,40 @@
-import './App.css';
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
+import React from "react";
+import { Admin, Resource ,fetchUtils} from "react-admin";
+import authProvider from "./authProvider";
+import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import CreatePost from "./components/admin/try";
+
+import { createBrowserHistory as createHistory } from 'history';
+
+import { createMuiTheme } from '@material-ui/core/styles';
+import simpleRestProvider from 'ra-data-simple-rest';
+
+const history = createHistory();
+
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark', 
+  },
+});
+
+const httpClient = (url, options = {}) => {
+  if (!options.headers) {
+      options.headers = new Headers({ Accept: 'application/json' });
+  }
+  const { token } = JSON.parse(localStorage.getItem('auth'));
+  options.headers.set('Authorization', `Bearer ${token}`);
+  return fetchUtils.fetchJson(url, options);
+};
+const dataProvider = simpleRestProvider('http://localhost:3000', httpClient);
+
+const App = () => (
+  <Admin theme={theme} 
+  authProvider={authProvider}
+  dataProvider={dataProvider}>
+    <Resource name="try" list={CreatePost} icon={DeleteSweepIcon} />
+
   
-// } from "react-router-dom";
-// import Login from './pages/login'
-// import Order from './pages/order'
-// import Pickup from './pages/pickup'
-// import Dashboard from './pages/dashboard'
-
-
-
-function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//       <Route exact path="/pickup" element={<Pickup />} />
-//       <Route exact path="/order" element={<Order />} />
-//       <Route exact path="/dashboard" element={<Dashboard />} />
-//       <Route exact path="/login" element={<Login />} />
-//       </Routes>
-//     </Router>
-//   );
-}
-
+  </Admin>
+);
 
 export default App;
